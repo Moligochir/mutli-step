@@ -10,6 +10,27 @@ body {
   align-items: center;
   height: 100vh;
 }
+p {
+  color: #334155;
+  font-weight: 600;
+}
+input {
+  color: #8B8E95;
+  border: solid #0CA5E9 1px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 16px;
+  padding: 4px;
+  
+}
+button { 
+  color:white;
+  background-color:#121316   ;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 16px;
+  padding: 4px;
+}
 .container {
   display: flex;
   align-items: center;
@@ -23,9 +44,23 @@ body {
   padding: 32px;
   gap: 8px;
 }
+.container2 {
+  gap: 8px;
+  width: 100%;
+  padding: 0 32;
+}
+.container3 {
+  gap: 8px;
+  width: 100%;
+  padding:130 32 ;
+  
+  
+}
 .head {
   font-size: 24px;
+  color: #202124;
 }
 .head1 {
   font-size: 18px;
+  color: #8E8E8E;
 }

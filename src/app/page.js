@@ -2,7 +2,7 @@
 import Image from "next/image";
 import "./index.css";
 import { useState } from "react";
-import { errorToJSON } from "next/dist/server/render";
+
 
 const checkIfInputHasCharacters = (string) => {
   return /\d/.test(string);
@@ -44,6 +44,14 @@ export default function Home() {
       errors.firstName =
         "First name cannot contain special characters or numbers.";
     }
+    if (checkIfInputHasNumbers(formValues.lastName)) {
+      errors.lastName =
+        "Last name cannot contain special characters or numbers.";
+    }
+    if (checkIfInputHasNumbers(formValues.userName)) {
+      errors.userName =
+        "This username is already taken. Please choose another one.";
+    }
     return errors;
   };
 
@@ -66,21 +74,22 @@ export default function Home() {
           Please provide all current information accurately.
         </h2>
       </div>
-      <div>
+      <div className="container2">
         <p>First name *</p>
         <input
           placeholder="First name"
           onChange={handleInputChange}
           name="firstName"
           value={formValues.firstName}
+          
         ></input>
-        {errorstat.firstName && (
+        {errorState.firstName && (
           <div style={{ color: "red" }}>
             First name cannot contain special characters or numbers.
-          </div>
+          </div> 
         )}
       </div>
-      <div>
+      <div className="container2">
         <p>Last name *</p>
         <input
           placeholder="Last name"
@@ -88,13 +97,26 @@ export default function Home() {
           name="lastName"
           value={formValues.lastName}
         ></input>
+        {errorState.lastName && (
+          <div style={{ color: "red" }}>
+            Last name cannot contain special characters or numbers.
+          </div> 
+        )}
       </div>
-      <div>
+      <div className="container2">
         <p>Username *</p>
-        <input placeholder="User name"></input>
+        <input placeholder="User name"
+        onChange={handleInputChange}
+          name="userName"
+          value={formValues.userName}></input>
+        {errorState.userName && (
+          <div style={{ color: "red" }}>
+            This username is already taken. Please choose another one.
+          </div> 
+        )}
       </div>
 
-      <div>
+      <div className="container3">
         <button onClick={handleClickButton}>Continue 1/3</button>
       </div>
     </div>

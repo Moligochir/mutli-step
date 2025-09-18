@@ -15,17 +15,16 @@ p {
   font-weight: 600;
 }
 input {
-  color: #8B8E95;
-  border: solid #0CA5E9 1px;
+  color: #8b8e95;
+  border: solid #0ca5e9 1px;
   border-radius: 8px;
   width: 100%;
   font-size: 16px;
   padding: 4px;
-  
 }
-button { 
-  color:white;
-  background-color:#121316   ;
+button {
+  color: white;
+  background-color: #121316;
   border-radius: 6px;
   width: 100%;
   font-size: 16px;
@@ -52,9 +51,13 @@ button {
 .container3 {
   gap: 8px;
   width: 100%;
-  padding:130 32 ;
-  
-  
+  padding: 130 32;
+}
+.container4 {
+  gap: 8px;
+  width: 100%;
+  padding: 130 32;
+  display: flex;
 }
 .head {
   font-size: 24px;
@@ -62,5 +65,5 @@ button {
 }
 .head1 {
   font-size: 18px;
-  color: #8E8E8E;
+  color: #8e8e8e;
 }

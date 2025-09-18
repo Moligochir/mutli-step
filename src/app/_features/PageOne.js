@@ -10,11 +10,8 @@ const checkIfInputHasNumbers = (string) => {
   return /\d/.test(string);
 };
 
-export const PageOne = () => {
-  const firstName = "";
-  const lastName = "";
-  const userName = "";
-
+export const PageOne = (props) => {
+  const { handleNextStep } = props;
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: "",
@@ -58,9 +55,17 @@ export const PageOne = () => {
 
     if (Object.keys(errors).length === 0) {
       setErrorstate({});
+      handleNextStep();
     } else {
       setErrorstate(errors);
     }
+  };
+  const shouldDisableButton = () => {
+    return (
+      formValues.firstName.length === 0 ||
+      formValues.lastName.length === 0 ||
+      formValues.userName.length === 0
+    );
   };
 
   return (
@@ -98,7 +103,9 @@ export const PageOne = () => {
       </div>
 
       <div className="container3">
-        <button onClick={handleClickButton}>Continue 1/3</button>
+        <button disabled={shouldDisableButton()} onClick={handleClickButton}>
+          Continue 1/3
+        </button>
       </div>
     </div>
   );

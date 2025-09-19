@@ -13,13 +13,11 @@ const chechIfInputHasPassword = (string) => {
     string
   );
 };
-export const PageTwo = (props) => {
+export const PageThree = (props) => {
   const { handleBackStep, handleNextStep } = props;
   const [formValues, setFormValues] = useState({
-    email: "",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: "",
+    dateOfBirth: "",
+    profileImage: "",
   });
   const [errorState, setErrorstate] = useState({});
   const handleInputChange = (e) => {
@@ -31,19 +29,19 @@ export const PageTwo = (props) => {
   const validateInput = () => {
     console.log("hello");
     const errors = {};
-    if (!checkIfInputHasEmail(formValues.email)) {
-      errors.email = "Please provide a valid email address.";
-    }
+    // if (!checkIfInputHasEmail(formValues.email)) {
+    //   errors.email = "Please provide a valid email address.";
+    // }
 
-    if (!checkIfInputHasPhonenumber(formValues.phoneNumber)) {
-      errors.phoneNumber = "Please enter a valid phone number.";
-    }
-    if (!chechIfInputHasPassword(formValues.password)) {
-      errors.password = "Password must include letters and numbers.";
-    }
-    if (formValues.password !== formValues.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match. Please try again.";
-    }
+    // if (!checkIfInputHasPhonenumber(formValues.phoneNumber)) {
+    //   errors.phoneNumber = "Please enter a valid phone number.";
+    // }
+    // if (!chechIfInputHasPassword(formValues.password)) {
+    //   errors.password = "Password must include letters and numbers.";
+    // }
+    // if (formValues.password !== formValues.confirmPassword) {
+    //   errors.confirmPassword = "Passwords do not match. Please try again.";
+    // }
     return errors;
   };
 
@@ -57,14 +55,14 @@ export const PageTwo = (props) => {
       setErrorstate(errors);
     }
   };
-  const shouldDisableButton = () => {
-    return (
-      formValues.email.length === 0 ||
-      formValues.phoneNumber.length === 0 ||
-      formValues.password.length === 0 ||
-      formValues.confirmPassword.length === 0
-    );
-  };
+  //   const shouldDisableButton = () => {
+  //     return (
+  //       formValues.email.length === 0 ||
+  //       formValues.phoneNumber.length === 0 ||
+  //       formValues.password.length === 0 ||
+  //       formValues.confirmPassword.length === 0
+  //     );
+  //   };
 
   return (
     <div className="container">
@@ -78,35 +76,20 @@ export const PageTwo = (props) => {
 
       <div className="container2">
         <FormInput
-          inputTag={"Email"}
+          inputTag={"Date of birth "}
           handleChange={handleInputChange}
-          name={"email"}
+          name={"dateOfBirth "}
           value={formValues.email}
           error={errorState.email}
         />
-        <FormInput
-          inputTag={"Phone number"}
-          handleChange={handleInputChange}
-          name={"phoneNumber"}
-          value={formValues.phoneNumber}
-          error={errorState.phoneNumber}
-        />
-        <FormInput
-          inputTag={"Password"}
-          handleChange={handleInputChange}
-          name={"password"}
-          value={formValues.password}
-          error={errorState.password}
-          type={"password"}
-        />
-        <FormInput
-          inputTag={"Confirm password"}
-          handleChange={handleInputChange}
-          name={"confirmPassword"}
-          value={formValues.confirmPassword}
-          error={errorState.confirmPassword}
-          type="password"
-        />
+        <p>Profile image *</p>
+        <div className="container5">
+          {" "}
+          <button className="button1">
+            <img src="./buttonImage.svg"></img>
+          </button>{" "}
+          Add image
+        </div>
       </div>
 
       <div className="container4">
@@ -120,9 +103,7 @@ export const PageTwo = (props) => {
         >
           Back
         </button>
-        <button disabled={shouldDisableButton()} onClick={handleClickButton}>
-          Continue 2/3
-        </button>
+        <button onClick={handleClickButton}>Continue 3/3</button>
       </div>
     </div>
   );

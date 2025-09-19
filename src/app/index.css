@@ -59,6 +59,17 @@ button {
   padding: 130 32;
   display: flex;
 }
+.container5 {
+  gap: 8px;
+  width: 416px;
+  height: 180px;
+  background-color: #7f7f800d;
+  padding: 0 32;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 .head {
   font-size: 24px;
   color: #202124;
@@ -66,4 +77,14 @@ button {
 .head1 {
   font-size: 18px;
   color: #8e8e8e;
+}
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #202124;
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  background-color: white;
 }

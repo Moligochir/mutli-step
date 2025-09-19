@@ -1,5 +1,5 @@
 export const FormInput = (props) => {
-  const { error, value, inputTag, handleChange, name } = props;
+  const { error, value, inputTag, handleChange, name, type } = props;
   return (
     <div>
       <p>{inputTag} *</p>
@@ -8,12 +8,9 @@ export const FormInput = (props) => {
         onChange={handleChange}
         name={name}
         value={value}
+        type={type}
       ></input>
-      {error && (
-        <div style={{ color: "red" }}>
-          {inputTag} cannot contain special characters or numbers.
-        </div>
-      )}
+      {<div style={{ color: "red" }}>{error}</div>}
     </div>
   );
 };

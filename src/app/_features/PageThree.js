@@ -2,68 +2,19 @@
 import { useState } from "react";
 import { FormInput } from "../_components/form-input";
 
-const checkIfInputHasEmail = (string) => {
-  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(string);
-};
-const checkIfInputHasPhonenumber = (string) => {
-  return /^\d{8}$/.test(string);
-};
-const chechIfInputHasPassword = (string) => {
-  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-    string
-  );
-};
+// const checkIfInputHasEmpty = (string) => {
+//   return (string);
+// };
+
+  
 export const PageThree = (props) => {
   const { handleBackStep, handleNextStep } = props;
   const [formValues, setFormValues] = useState({
     dateOfBirth: "",
-    profileImage: "",
+    profileImage:"",
   });
   const [errorState, setErrorstate] = useState({});
-  const handleInputChange = (e) => {
-    const inputName = e.target.name;
-    const inputValue = e.target.value;
-    setFormValues({ ...formValues, [inputName]: inputValue });
-  };
-
-  const validateInput = () => {
-    console.log("hello");
-    const errors = {};
-    // if (!checkIfInputHasEmail(formValues.email)) {
-    //   errors.email = "Please provide a valid email address.";
-    // }
-
-    // if (!checkIfInputHasPhonenumber(formValues.phoneNumber)) {
-    //   errors.phoneNumber = "Please enter a valid phone number.";
-    // }
-    // if (!chechIfInputHasPassword(formValues.password)) {
-    //   errors.password = "Password must include letters and numbers.";
-    // }
-    // if (formValues.password !== formValues.confirmPassword) {
-    //   errors.confirmPassword = "Passwords do not match. Please try again.";
-    // }
-    return errors;
-  };
-
-  const handleClickButton = () => {
-    const errors = validateInput();
-    console.log(errors);
-    if (Object.keys(errors).length === 0) {
-      setErrorstate({});
-      handleNextStep();
-    } else {
-      setErrorstate(errors);
-    }
-  };
-  //   const shouldDisableButton = () => {
-  //     return (
-  //       formValues.email.length === 0 ||
-  //       formValues.phoneNumber.length === 0 ||
-  //       formValues.password.length === 0 ||
-  //       formValues.confirmPassword.length === 0
-  //     );
-  //   };
-
+  const handleInputChange = (e) => {}
   return (
     <div className="container">
       <div className="container1">
@@ -77,10 +28,10 @@ export const PageThree = (props) => {
       <div className="container2">
         <FormInput
           inputTag={"Date of birth "}
-          handleChange={handleInputChange}
+          id="myDateInput"
           name={"dateOfBirth "}
-          value={formValues.email}
-          error={errorState.email}
+          type={"date"}
+          
         />
         <p>Profile image *</p>
         <div className="container5">
@@ -103,7 +54,7 @@ export const PageThree = (props) => {
         >
           Back
         </button>
-        <button onClick={handleClickButton}>Continue 3/3</button>
+        <button >Continue 3/3</button>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export const PageTwo = (props) => {
   };
 
   const validateInput = () => {
-    console.log("hello");
+    
     const errors = {};
     if (!checkIfInputHasEmail(formValues.email)) {
       errors.email = "Please provide a valid email address.";
@@ -49,7 +49,7 @@ export const PageTwo = (props) => {
 
   const handleClickButton = () => {
     const errors = validateInput();
-    console.log(errors);
+    
     if (Object.keys(errors).length === 0) {
       setErrorstate({});
       handleNextStep();
